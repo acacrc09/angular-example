@@ -1,0 +1,13 @@
+kind: LocalConfig
+apiversion: odo.openshift.io/v1alpha1
+ComponentSettings:
+  Type: nginx:latest
+  SourceLocation: https://github.com/acacrc09/angular-example.git
+  Ref: HEAD
+  SourceType: git
+  Ports:
+  - 8443/TCP
+  - 8080/TCP
+  Application: angular-example-bancoripley
+  Project: banco-ripley
+  Name: angular-example-bancoripley
