@@ -1,7 +1,7 @@
 pipeline{
   agent { 
     node {
-      label 'Principal'
+      label 'nodejs8'
     } 
   }
   stages{
