@@ -1,4 +1,5 @@
-FROM nginx:1.13.3-alpine
+#FROM nginx:1.13.3-alpine
+FROM jachri21/angular-example:latest
 
 ## Copy our nginx config
 #COPY nginx/ /etc/nginx/conf.d/

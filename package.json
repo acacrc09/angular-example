@@ -2,7 +2,7 @@
   "name": "openshift-angular-example",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",    
+    "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
