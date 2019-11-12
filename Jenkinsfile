@@ -1,5 +1,8 @@
 pipeline{
-  agent any
+  agent { 
+    node {
+      label 'Principal'
+    } 
   }
   stages{
     stage ('Checkout codigo fuente'){
