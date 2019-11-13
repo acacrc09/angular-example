@@ -2,14 +2,15 @@ pipeline{
   agent { 
     node {
       label 'nodejs8'
-    }
+    } 
+  }
   stages{
     stage ('Checkout codigo fuente'){
       steps{
         checkout scm
       }
     }
-   stage ('Instalar dependencias'){
+    stage ('Instalar dependencias'){
       steps{
         sh '''
           npm config set registry http://nexus-santander-devops.apps.s0f1.xyz/repository/npm-proxy
