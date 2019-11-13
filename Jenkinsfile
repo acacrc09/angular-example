@@ -1,16 +1,22 @@
 pipeline{
-  agent any
+  agent { 
+    node {
+      label 'nodejs'
+    }
   stages{
     stage ('Checkout codigo fuente'){
       steps{
         checkout scm
       }
     }
-    stage ('Instalar dependencias'){
-      steps {
-        sh 'yarn'
-        stash includes: 'node_modules/', name: 'node_modules'
-        }
+   stage ('Instalar dependencias'){
+      steps{
+        sh '''
+          npm config set registry http://nexus-santander-devops.apps.s0f1.xyz/repository/npm-proxy
+          npm install --verbose -d 
+          npm install --save classlist.js
+        '''
+      }
     }
     stage ('Revisión calidad con LINT'){
       steps{
