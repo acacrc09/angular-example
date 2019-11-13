@@ -1,9 +1,5 @@
 pipeline{
-  agent { 
-    node {
-      label 'nodejs8'
-    } 
-  }
+  agent { label 'nodejs8' }  
   stages{
     stage ('Checkout codigo fuente'){
       steps{
