@@ -34,7 +34,7 @@ pipeline{
         script {
           openshift.withCluster() {
             openshift.withProject('banco-ripley') {
-              openshift.selector("bc", "angular-example").startBuild("--from-dir=./dist/", "--wait=true", "--follow", "--loglevel=8")
+              openshift.selector("bc", "angular-example").startBuild("--from-dir=./dist/openshift-angular-example/", "--wait=true", "--follow", "--loglevel=8")
             }
           }
         }
@@ -44,7 +44,7 @@ pipeline{
       steps{
         sh '''
           rm -rf node_modules
-          oc start-build angular-example --from-dir=./dist/ --follow
+          oc start-build angular-example --from-dir=./dist/openshift-angular-example/ --follow
         '''
       }
     }
