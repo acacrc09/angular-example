@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'openshift-angular-example'`, () => {
+  it(`should have as title 'angular-example'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('openshift-angular-example');
+    expect(app.title).toEqual('angular-example');
   });
 
   it('should render title in a h1 tag', () => {
