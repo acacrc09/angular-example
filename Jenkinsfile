@@ -26,7 +26,7 @@ pipeline{
     }
     stage ('Construcción Aplicación') {
       steps{
-        sh '$(npm bin)/ng build --prod --build-optimizer --output-path=dist'
+        sh '$(npm bin)/ng build --prod --build-optimizer'
       }
     }
     stage ('Desplegar') {
@@ -34,7 +34,7 @@ pipeline{
         script {
           openshift.withCluster() {
             openshift.withProject('banco-ripley') {
-              openshift.selector("bc", "angular-example").startBuild("--from-dir=.", "--wait=true", "--follow", "--loglevel=8")
+              openshift.selector("bc", "angular-example").startBuild("--from-dir=./dist/angular-example/", "--wait=true", "--follow", "--loglevel=8")
             }
           }
         }
@@ -44,7 +44,7 @@ pipeline{
       steps{
         sh '''
           rm -rf node_modules
-          oc start-build angular-example --from-dir=. --follow
+          oc start-build angular-example --from-dir=./dist/angular-example/ --follow
         '''
       }
     }
