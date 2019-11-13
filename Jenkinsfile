@@ -8,11 +8,9 @@ pipeline{
     }
     stage ('Instalar dependencias'){
       steps{
-        sh '''
-          
-          npm install --verbose -d 
-          npm install --save classlist.js
-        '''
+        sh          
+          '$(npm install) --verbose -d'
+          '$(npm install) --save classlist.js'     
       }
     }
     stage ('Revisión calidad con LINT'){
