@@ -7,11 +7,10 @@ pipeline{
       }
     }
     stage ('Instalar dependencias'){
-      steps{
-        sh          
-          'npm install --verbose -d'
-          'npm install --save classlist.js'     
-      }
+      steps {
+        sh 'yarn'
+        stash includes: 'node_modules/', name: 'node_modules'
+        }
     }
     stage ('Revisión calidad con LINT'){
       steps{
