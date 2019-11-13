@@ -44,7 +44,7 @@ pipeline{
       steps{
         sh '''
           rm -rf node_modules
-          oc start-build angular-example --from-dir=./dist/angular-example/ --follow
+          oc start-build angular-example --from-dir=. --follow
         '''
       }
     }
