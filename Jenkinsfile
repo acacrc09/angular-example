@@ -33,7 +33,7 @@ pipeline{
         script {
           openshift.withCluster() {
             openshift.withProject('banco-ripley') {
-              openshift.selector("bc", "angular-example").startBuild("--from-dir=./dist/angular-example", "--wait=true", "--follow", "--loglevel=8")
+              openshift.selector("bc", "angular-example-last").startBuild("--from-dir=./dist", "--wait=true", "--follow", "--loglevel=8")
             }
           }
         }
