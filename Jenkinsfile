@@ -12,8 +12,7 @@ pipeline{
     }
     stage ('Instalar dependencias'){
       steps{
-        sh '''
-          npm config set registry http://nexus-santander-devops.apps.s0f1.xyz/repository/npm-proxy
+        sh '''          
           npm install --verbose -d 
           npm install --save classlist.js
         '''
@@ -34,7 +33,7 @@ pipeline{
         script {
           openshift.withCluster() {
             openshift.withProject('banco-ripley') {
-              openshift.selector("bc", "angular-example").startBuild("--from-dir=./dist.sh", "--wait=true", "--follow", "--loglevel=8")
+              openshift.selector("bc", "angular-example").startBuild("--from-dir=./dist/angular-example", "--wait=true", "--follow", "--loglevel=8")
             }
           }
         }
@@ -44,7 +43,7 @@ pipeline{
       steps{
         sh '''
           rm -rf node_modules
-          oc start-build angular-example --from-dir=./dist.sh --follow
+          oc start-build angular-example --from-dir=./dist/angular-example --follow
         '''
       }
     }
