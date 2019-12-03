@@ -20,4 +20,10 @@ steps:
     npm run build    
   displayName: 'npm install and build'
 
-- script: npm test
+- task: Npm@1
+  displayName: 'Test Angular'
+  inputs:
+    command: custom
+    customCommand: run test -- --watch=false --code-coverage
+    workingDir: src/
+
