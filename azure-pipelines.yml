@@ -24,6 +24,6 @@ steps:
   displayName: 'Test Angular'
   inputs:
     command: custom
-    customCommand: run test -- --watch=false --code-coverage
-    workingDir: src/
+    customCommand: run --ng test --watch=false --code-coverage
+    workingDir: src
 
