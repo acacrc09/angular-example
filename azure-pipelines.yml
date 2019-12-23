@@ -32,9 +32,3 @@ steps:
     artifact: 'angular-example'
     publishLocation: 'pipeline'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'dist/angularUI.war'
-    ArtifactName: 'angular-example'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifacts'
