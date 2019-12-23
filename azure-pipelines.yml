@@ -30,7 +30,7 @@ steps:
   inputs:
     PathtoPublish: 'dist/'
     ArtifactName: 'angular-example'
-    publishLocation: 'pipeline'
+    publishLocation: 'Container'
   displayName: 'Publish Artifacts'
 
 
