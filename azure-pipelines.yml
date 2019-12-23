@@ -30,5 +30,11 @@ steps:
   inputs:
     targetPath: '$(Pipeline.Workspace)'
     artifact: 'angular-example'
-    publishLocation: 'filepath'
-    fileSharePath: '/dist'
+    publishLocation: 'pipeline'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist/angularUI.war'
+    ArtifactName: 'angular-example'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifacts'
