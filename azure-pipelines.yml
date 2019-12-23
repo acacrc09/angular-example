@@ -25,12 +25,10 @@ steps:
     targetType: 'inline'
     script: 'jar -cvf angularUI.war *'
     workingDirectory: 'dist/'
-
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: 'dist/'
-    ArtifactName: 'angular-example'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifacts'
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'angular-example'
+    publishLocation: 'pipeline'
 
 
