@@ -30,4 +30,5 @@ steps:
   inputs:
     targetPath: '$(Pipeline.Workspace)'
     artifact: 'angular-example'
-    publishLocation: 'pipeline'
+    publishLocation: 'filepath'
+    fileSharePath: '/dist'
