@@ -20,9 +20,12 @@ steps:
     npm run build    
   displayName: 'npm install and build'
 
-- script: |
-    npm test      
-  displayName: 'Unit Test Karma' 
+- task: Npm@1
+  displayName: 'Lint Angular'
+  inputs:
+    command: custom
+    customCommand: run lint --  --format=stylish
+    workingDir: src
 - task: Bash@3
   inputs:
     targetType: 'inline'
