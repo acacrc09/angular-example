@@ -24,7 +24,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'jar -cvf angularUI.war *'
-    workingDirectory: 'dist/'
+    workingDirectory: 'dist/'    
 
 - task: PublishBuildArtifacts@1
   inputs:
