@@ -31,7 +31,7 @@ steps:
       # sonar.exclusions=**/*.bin
       sonar.language=js
       sonar.sourceEncoding=UTF-8
-      sonar.branch=develop
+      sonar.branch.name=develop
 - task: SonarQubeAnalyze@4
 - task: Npm@1
   displayName: 'Lint Angular'
