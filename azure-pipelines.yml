@@ -20,17 +20,18 @@ steps:
     SonarQube: 'SonarQube Openshift'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'Angular-Example'
-    cliProjectName: 'Angular-Example'
+    cliProjectKey: 'AngularExample'
+    cliProjectName: 'AngularExample'
     cliSources: '.'
     extraProperties: |
       # Additional properties that will be passed to the scanner, 
       # Put one key=value per line, example:
+      sonar.login=admin
+      sonar.password=admin
       # sonar.exclusions=**/*.bin
-      # sonar.language=js
-      # sonar.sourceEncoding=UTF-8
-      # sonar.login=admin
-      # sonar.password=admin
+      sonar.language=js
+      sonar.sourceEncoding=UTF-8
+      sonar.branch=develop
 - task: SonarQubeAnalyze@4
 - task: Npm@1
   displayName: 'Lint Angular'
