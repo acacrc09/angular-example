@@ -26,6 +26,8 @@ steps:
     scannerMode: 'CLI'
     configMode: 'file'
 
+- task: SonarQubeAnalyze@4
+
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
