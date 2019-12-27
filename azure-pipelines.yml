@@ -30,10 +30,9 @@ steps:
       sonar.language=js
       sonar.sourceEncoding=UTF-8
       sonar.login=admin
-      sonar.password=admin      
-
+      sonar.password=admin   
+      sonar.branch.name=Develop   
 - task: SonarQubeAnalyze@4
-
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
