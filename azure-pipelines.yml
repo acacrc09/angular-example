@@ -20,7 +20,7 @@ steps:
     SonarQube: 'SonarQube Openshift'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'AngularExample'
+    cliProjectKey: 'Angular-Example'
     cliProjectName: 'AngularExample'
     cliSources: '.'
     extraProperties: |
@@ -31,7 +31,6 @@ steps:
       # sonar.exclusions=**/*.bin
       sonar.language=js
       sonar.sourceEncoding=UTF-8
-      sonar.branch.name=develop
 - task: SonarQubeAnalyze@4
 - task: Npm@1
   displayName: 'Lint Angular'
