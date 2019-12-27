@@ -20,6 +20,12 @@ steps:
     npm run build    
   displayName: 'npm install and build'
 
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SonarQube Openshift'
+    scannerMode: 'CLI'
+    configMode: 'file'
+
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
