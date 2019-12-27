@@ -30,8 +30,7 @@ steps:
       sonar.language=js
       sonar.sourceEncoding=UTF-8
       sonar.login=admin
-      sonar.password=admin
-      sonar.branch=Develop
+      sonar.password=admin      
 
 - task: SonarQubeAnalyze@4
 
