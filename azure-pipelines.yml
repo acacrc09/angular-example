@@ -26,12 +26,11 @@ steps:
     extraProperties: |
       # Additional properties that will be passed to the scanner, 
       # Put one key=value per line, example:
+      sonar.login=admin
+      sonar.password=admin
       # sonar.exclusions=**/*.bin
       sonar.language=js
       sonar.sourceEncoding=UTF-8
-      sonar.login=admin
-      sonar.password=admin
-      sonar.branch=Develop
 
 - task: SonarQubeAnalyze@4
 
