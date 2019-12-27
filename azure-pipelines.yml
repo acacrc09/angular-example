@@ -23,6 +23,12 @@ steps:
     cliProjectKey: 'Angular-Example'
     cliProjectName: 'Angular-Example'
     cliSources: '.'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.language=js
+      sonar.sourceEncoding=UTF-8
 
 - task: SonarQubeAnalyze@4
 
