@@ -25,6 +25,7 @@ steps:
       # Put one key=value per line, example:
       sonar.login=admin
       sonar.password=admin
+      sonar.projectKey=angular:angular-example
       # sonar.exclusions=**/*.bin
 
 - task: SonarQubeAnalyze@4
