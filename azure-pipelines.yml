@@ -16,6 +16,10 @@ steps:
   displayName: 'Install Node.js'
 
 - task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SonarQube Openshift'
+    scannerMode: 'CLI'
+    configMode: 'file'
 
 - task: SonarQubeAnalyze@4
 
