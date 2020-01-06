@@ -20,6 +20,12 @@ steps:
     SonarQube: 'SonarQube Openshift'
     scannerMode: 'CLI'
     configMode: 'file'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      sonar.login=admin
+      sonar.password=admin
+      # sonar.exclusions=**/*.bin
 
 - task: SonarQubeAnalyze@4
 
