@@ -16,21 +16,6 @@ steps:
   displayName: 'Install Node.js'
 
 - task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'SonarQube Openshift'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'Angular-Example'
-    cliProjectName: 'Angular-Example'
-    cliSources: 'src'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner, 
-      # Put one key=value per line, example:
-      sonar.login=admin
-      sonar.password=admin
-      # sonar.exclusions=**/*.bin
-      sonar.language=js
-      sonar.sourceEncoding=UTF-8
 
 - task: SonarQubeAnalyze@4
 
