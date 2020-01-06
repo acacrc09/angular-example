@@ -25,14 +25,23 @@ steps:
       # Put one key=value per line, example:
       sonar.login=admin
       sonar.password=admin
+      sonar.projectKey=angular:angular-example
       # sonar.exclusions=**/*.bin
 
 - task: SonarQubeAnalyze@4
 
 - script: |
     npm install    
-    npm run build    
+    npm run build  
   displayName: 'npm install and build'
+
+
+- task: Npm@1
+  displayName: 'Test Angular'
+  inputs:
+    command: custom
+    customCommand: run ng test --watch=false --browsers=ChromeHeadless
+    workingDir: src
 
 - task: Npm@1
   displayName: 'Lint Angular'
