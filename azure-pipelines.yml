@@ -44,7 +44,7 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST.xml'    
     testRunTitle: "Unit tests with Jest"    
-    searchFolder: "$(Build.SourcesDirectory)"    
+    searchFolder: "$(System.DefaultWorkingDirectory)"    
     failTaskOnFailedTests: false
 
 - task: Npm@1
