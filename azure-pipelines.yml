@@ -39,21 +39,20 @@ steps:
     npm run test-headless
   displayName: 'Unit Test'
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST.xml'    
+    testRunTitle: "Unit tests with Jest"    
+    searchFolder: "$(Build.SourcesDirectory)"    
+    failTaskOnFailedTests: false
+
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
     command: custom
     customCommand: run lint --  --format=stylish
     workingDir: src
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST.xml'    
-    testRunTitle: "Unit tests with Jest"
-    mergeTestResults: false
-    searchFolder: "$(Build.SourcesDirectory)"    
-    failTaskOnFailedTests: false
 
 - task: Bash@3
   inputs:
