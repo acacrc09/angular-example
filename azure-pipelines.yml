@@ -35,6 +35,10 @@ steps:
     npm run build  
   displayName: 'npm install and build'
 
+- script: |
+    npm run test-headless
+  displayName: 'unit Test'
+
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
