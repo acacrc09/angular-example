@@ -45,6 +45,10 @@ steps:
     command: custom
     customCommand: run lint --  --format=stylish
     workingDir: src
+
+- script: |
+    npm run e2e
+  displayName: 'E2E Test'
 - task: Bash@3
   inputs:
     targetType: 'inline'
