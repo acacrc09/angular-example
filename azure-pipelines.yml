@@ -46,9 +46,11 @@ steps:
     customCommand: run lint --  --format=stylish
     workingDir: src
 
-- script: |
-    npm run e2e
-  displayName: 'E2E Test'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+
 - task: Bash@3
   inputs:
     targetType: 'inline'
