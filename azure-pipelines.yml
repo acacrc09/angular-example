@@ -42,7 +42,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/*.trx'    
+    testResultsFiles: '**/junit.xml'    
     testRunTitle: "Unit tests with Jest"        
     failTaskOnFailedTests: false
 
