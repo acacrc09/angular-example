@@ -35,14 +35,6 @@ steps:
     npm run build  
   displayName: 'npm install and build'
 
-
-- task: Npm@1
-  displayName: 'Test Angular'
-  inputs:
-    command: custom
-    customCommand: run ng test --watch=false --browsers=ChromeHeadless
-    workingDir: src
-
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
