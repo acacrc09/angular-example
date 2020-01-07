@@ -43,8 +43,7 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/*.trx'    
-    testRunTitle: "Unit tests with Jest"    
-    searchFolder: "$(System.DefaultWorkingDirectory)"    
+    testRunTitle: "Unit tests with Jest"        
     failTaskOnFailedTests: false
 
 - task: Npm@1
