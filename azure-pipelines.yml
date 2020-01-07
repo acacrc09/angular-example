@@ -49,7 +49,11 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST.xml'
+    testResultsFiles: '**/TEST.xml'    
+    testRunTitle: "Unit tests with Jest"
+    mergeTestResults: false
+    searchFolder: "$(Build.SourcesDirectory)"    
+    failTaskOnFailedTests: false
 
 - task: Bash@3
   inputs:
