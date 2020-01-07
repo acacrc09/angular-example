@@ -37,7 +37,7 @@ steps:
 
 - script: |
     npm run test-headless
-  displayName: 'unit Test'
+  displayName: 'Unit Test'
 
 - task: Npm@1
   displayName: 'Lint Angular'
