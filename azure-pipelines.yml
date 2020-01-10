@@ -53,7 +53,7 @@ steps:
     failTaskOnFailedTests: false
 
 - script:
-    npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+    npm run e2e
   displayName: '2e2 Test'
 
 - script: |
