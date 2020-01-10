@@ -47,10 +47,8 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '**/*.trx'    
-    testRunTitle: "Unit tests"        
-    failTaskOnFailedTests: false
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**\unit.xml'
 
 - script:
     npm run e2e
