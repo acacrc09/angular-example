@@ -42,7 +42,7 @@ steps:
     workingDir: src
 
 - script: |
-    npm run test-headless
+    npm run --no-watch --no-progress --browsers=ChromeHeadlessCI
   displayName: 'Unit Test'
 
 - task: PublishTestResults@2
