@@ -48,7 +48,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**\unit.xml'
+    testResultsFiles: '**\TEST.xml'
 
 - script:
     npm run e2e
