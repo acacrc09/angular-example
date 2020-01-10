@@ -30,6 +30,11 @@ steps:
 
 - task: SonarQubeAnalyze@4
 
+- script: |
+    npm install    
+    npm run build  
+  displayName: 'npm install and build'
+
 - task: Npm@1
   displayName: 'Lint Angular'
   inputs:
@@ -48,10 +53,7 @@ steps:
     testRunTitle: "Unit tests"        
     failTaskOnFailedTests: false
 
-- script: |
-    npm install    
-    npm run build  
-  displayName: 'npm install and build'
+
 
 - task: Bash@3
   inputs:
