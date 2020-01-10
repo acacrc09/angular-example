@@ -45,6 +45,10 @@ steps:
     npm run test-headless
   displayName: 'Unit Test'
 
+- script:
+    npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  displayName: '2e2 Test'
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'VSTest'
