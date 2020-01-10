@@ -30,10 +30,12 @@ steps:
 
 - task: SonarQubeAnalyze@4
 
-- script: |
-    npm install    
-    npm run build  
-  displayName: 'npm install and build'
+- task: Npm@1
+  displayName: 'Lint Angular'
+  inputs:
+    command: custom
+    customCommand: run lint --  --format=stylish
+    workingDir: src
 
 - script: |
     npm run test-headless
@@ -46,12 +48,10 @@ steps:
     testRunTitle: "Unit tests"        
     failTaskOnFailedTests: false
 
-- task: Npm@1
-  displayName: 'Lint Angular'
-  inputs:
-    command: custom
-    customCommand: run lint --  --format=stylish
-    workingDir: src
+- script: |
+    npm install    
+    npm run build  
+  displayName: 'npm install and build'
 
 - task: Bash@3
   inputs:
