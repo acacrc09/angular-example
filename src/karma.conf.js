@@ -5,8 +5,8 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    browsers: ['PhantomJS'],
-    reporters: ['progress', 'junit'],
+    browsers: ['PhantomJS'],    
+    reporters: ['progress', 'junit'],    
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
