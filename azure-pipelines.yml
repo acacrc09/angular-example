@@ -45,7 +45,7 @@ steps:
   displayName: 'Test Angular Cobertura'
   inputs:
     command: 'custom'
-    workingDir: '$(System.DefaultWorkingDirectory)/src'
+    workingDir: 'src'
     customCommand: 'run test -- --watch=false --code-coverage'
 
 - task: PublishCodeCoverageResults@1
@@ -53,8 +53,8 @@ steps:
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/src/coverage/cobertura-coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/src/coverage'
+    summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
+    reportDirectory: 'src/coverage'
     failIfCoverageEmpty: true
 
 - script: |
