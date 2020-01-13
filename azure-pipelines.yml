@@ -57,10 +57,6 @@ steps:
     reportDirectory: 'src/coverage'
     failIfCoverageEmpty: true
 
-- script: |
-    npm run test
-  displayName: 'Unit Test'
-
 - task: DeleteFiles@1
   displayName: 'Delete JUnit files'
   inputs:
