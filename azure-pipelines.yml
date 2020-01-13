@@ -41,6 +41,14 @@ steps:
     customCommand: run lint --  --format=stylish
     workingDir: src
 
+- task: JenkinsQueueJob@2
+  inputs:
+    serverEndpoint: 'Jenkins Poc Masisa'
+    jobName: 'new_pipeline_qtest_demo'
+    captureConsole: true
+    capturePipeline: true
+    isParameterizedJob: false
+
 - script: |
     npm run test-headless
   displayName: 'Unit Test'
