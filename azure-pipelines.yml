@@ -48,7 +48,8 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/*.trx'
+    testResultsFiles: '**/TEST-*.xml'
+    searchFolder: '$(Build.ArtifactStagingDirectory)/**/*.xml'
 
 - script:
     npm run e2e
