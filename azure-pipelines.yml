@@ -52,9 +52,10 @@ steps:
   displayName: 'Publish code coverage Angular results'
   condition: succeededOrFailed()
   inputs:
-    codeCoverageTool: Cobertura
+    codeCoverageTool: 'Cobertura'
     summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
-    reportDirectory: src/coverage
+    pathToSources: 'src/coverage'
+    reportDirectory: 'src/coverage'
     failIfCoverageEmpty: true
 
 - script: |
