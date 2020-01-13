@@ -41,6 +41,22 @@ steps:
     customCommand: run lint --  --format=stylish
     workingDir: src
 
+- task: Npm@1
+  displayName: 'Test Angular Cobertura'
+  inputs:
+    command: custom
+    customCommand: run test -- --watch=false --code-coverage
+    workingDir: src/
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage Angular results'
+  condition: succeededOrFailed()
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
+    reportDirectory: src/coverage
+    failIfCoverageEmpty: true
+
 - script: |
     npm run test
   displayName: 'Unit Test'
