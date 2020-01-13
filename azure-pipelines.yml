@@ -50,12 +50,6 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-RESULTS.xml'
 
-- task: PublishCodeCoverageResults@3
-  inputs: 
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
-
 - script:
     npm run e2e
   displayName: 'e2e Test'
