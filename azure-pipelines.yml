@@ -46,14 +46,14 @@ steps:
   inputs:
     command: custom
     customCommand: run test -- --watch=false --code-coverage
-    workingDir: /
+    workingDir: src/
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage Angular results'
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '/coverage/cobertura-coverage.xml'
+    summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
     reportDirectory: coverage
     failIfCoverageEmpty: true
 
