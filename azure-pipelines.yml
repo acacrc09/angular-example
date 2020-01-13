@@ -53,8 +53,8 @@ steps:
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/src/angular7/coverage/cobertura-coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/src/angular7/coverage'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/src/coverage/cobertura-coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/src/coverage'
     failIfCoverageEmpty: true
 
 - script: |
