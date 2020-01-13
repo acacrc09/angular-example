@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
+    "build": "ng build",
+    "install-puppeteer": "cd node_modules/puppeteer && npm run install",
+    "test": "npm run install-puppeteer && ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "npm run install-puppeteer && ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +45,7 @@
     "karma-junit-reporter": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "protractor": "~5.4.0",
+    "puppeteer": "^2.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
