@@ -45,11 +45,20 @@ steps:
     npm run test
   displayName: 'Unit Test'
 
-- task: PublishTestResults@2
+- task: DeleteFiles@1
+  displayName: 'Delete JUnit files'
   inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/*.xml'
-    searchFolder: '$(Build.ArtifactStagingDirectory)/**/*.xml'
+    SourceFolder: src/junit
+    Contents: 'TESTS*.xml' 
+
+- task: PublishTestResults@2
+  displayName: 'Publish Angular test results'
+  condition: succeededOrFailed()
+  inputs:
+    searchFolder: $(System.DefaultWorkingDirectory)/src/junit
+    testRunTitle: Angular
+    testResultsFormat: JUnit
+    testResultsFiles: "**/TESTS*.xml"
 
 - script:
     npm run e2e
