@@ -33,7 +33,7 @@ steps:
 - task: DeleteFiles@1
   displayName: 'Eliminar JUnit files'
   inputs:
-    SourceFolder: src/junit
+    SourceFolder: '$(System.DefaultWorkingDirectory)/junit'
     Contents: 'TESTS*.xml'
 
 - script: |
@@ -67,7 +67,7 @@ steps:
   displayName: 'Publish Angular test results'
   condition: succeededOrFailed()
   inputs:
-    searchFolder: $(System.DefaultWorkingDirectory)/src/junit
+    searchFolder: $(System.DefaultWorkingDirectory)/junit
     testRunTitle: Angular
     testResultsFormat: JUnit
     testResultsFiles: "**/TESTS*.xml"
