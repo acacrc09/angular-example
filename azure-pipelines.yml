@@ -30,6 +30,12 @@ steps:
 
 - task: SonarQubeAnalyze@4
 
+- task: DeleteFiles@1
+  displayName: 'Eliminar JUnit files'
+  inputs:
+    SourceFolder: src/junit
+    Contents: 'TESTS*.xml'
+
 - script: |
     npm install          
   displayName: 'Instalar npm'
@@ -56,12 +62,6 @@ steps:
     summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
     reportDirectory: 'src/coverage'
     failIfCoverageEmpty: true
-
-- task: DeleteFiles@1
-  displayName: 'Delete JUnit files'
-  inputs:
-    SourceFolder: src/junit
-    Contents: 'TESTS*.xml' 
 
 - task: PublishTestResults@2
   displayName: 'Publish Angular test results'
