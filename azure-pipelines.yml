@@ -72,10 +72,10 @@ steps:
     testResultsFormat: JUnit
     testResultsFiles: "**/TESTS*.xml"
 
-- task: JenkinsOnOpenshiftQueueJob@1
+- task: JenkinsQueueJob@2
   inputs:
-    serverEndpoint: 'Jenkins Openshift'
-    jobName: 'Integracion Jenkins qTest'
+    serverEndpoint: 'Jenkins Poc Masisa'
+    jobName: 'new_pipeline_qtest_demo'
     captureConsole: true
     capturePipeline: true
     isParameterizedJob: false
