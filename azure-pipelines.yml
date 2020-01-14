@@ -83,7 +83,7 @@ steps:
   displayName: 'Publish Angular E2E test results'
   condition: succeededOrFailed()
   inputs:
-    searchFolder: $(System.DefaultWorkingDirectory)/e2e/src/junit
+    searchFolder: $(System.DefaultWorkingDirectory)/e2e/junit
     testRunTitle: Angular_E2E
     testResultsFormat: JUnit
     testResultsFiles: "**/junit*.xml"
