@@ -75,9 +75,9 @@ steps:
 - task: JenkinsQueueJob@2
   inputs:
     serverEndpoint: 'Jenkins Poc Masisa'
-    jobName: 'new_pipeline_qtest_demo'
-    captureConsole: false
-    capturePipeline: false
+    jobName: 'integracion qTest'
+    captureConsole: true
+    capturePipeline: true
     isParameterizedJob: false
 
 - task: Npm@1
