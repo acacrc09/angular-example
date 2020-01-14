@@ -72,14 +72,6 @@ steps:
     testResultsFormat: JUnit
     testResultsFiles: "**/TESTS*.xml"
 
-- task: JenkinsQueueJob@2
-  inputs:
-    serverEndpoint: 'Jenkins Poc Masisa'
-    jobName: 'new_pipeline_qtest_demo'
-    captureConsole: true
-    capturePipeline: true
-    isParameterizedJob: false
-
 - task: Npm@1
   displayName: 'E2E Test Angular'
   inputs:
