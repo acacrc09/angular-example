@@ -27,17 +27,6 @@ pipeline{
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
       }
-    }
-    stage ('Desplegar') {
-      steps{
-        script {
-          openshift.withCluster() {
-            openshift.withProject('banco-ripley') {
-              openshift.selector("bc", "angular-example-last").startBuild("--from-dir=./dist", "--wait=true", "--follow", "--loglevel=8")
-            }
-          }
-        }
-      }
-    }
+    }    
   }
 }
