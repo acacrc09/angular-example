@@ -21,7 +21,7 @@ pipeline{
       steps{
         sh '''
             cd src
-            npm run test
+            npm run test --no-sandbox
             '''
       }
       post {
