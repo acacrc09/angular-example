@@ -21,7 +21,7 @@ pipeline{
       steps{
         sh '''
             cd src
-            npm run test --single-run --browsers Chrome_no_sandbox --watch=false --code-coverage
+            npm run test
             '''
       }
       post {
