@@ -13,8 +13,7 @@ pipeline{
     stage ('Instalar dependencias'){
       steps{
         sh '''          
-          npm install --verbose -d 
-          npm install --save classlist.js
+          npm install          
         '''
       }
     }
@@ -25,7 +24,10 @@ pipeline{
     }
     stage ('Test Angular Cobertura') {
       steps{
-        sh '$(npm bin)/run test -- --watch=false --code-coverage'
+        sh '''
+            cd src
+            $(npm bin)/run test -- --watch=false --code-coverage
+            '''
       }
     }    
     stage ('Construcción Aplicación') {
