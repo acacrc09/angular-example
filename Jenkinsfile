@@ -23,6 +23,11 @@ pipeline{
         sh '$(npm bin)/ng lint'
       }
     }
+    stage ('Test Angular Cobertura') {
+      steps{
+        sh '$(npm bin)/run test -- --watch=false --code-coverage'
+      }
+    }    
     stage ('Construcción Aplicación') {
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
