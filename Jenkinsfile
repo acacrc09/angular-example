@@ -21,7 +21,7 @@ pipeline{
       steps{
         sh '''
             cd src
-            run test -- --watch=false --code-coverage
+            npm run test -- --watch=false --code-coverage
             '''
       }
       post {
