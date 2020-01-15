@@ -17,19 +17,24 @@ pipeline{
         '''
       }
     }
-    stage ('Revisión calidad con LINT'){
-      steps{
-        sh '$(npm bin)/ng lint'
-      }
-    }
     stage ('Test Angular Cobertura') {
       steps{
         sh '''
             cd src
-            $(npm bin)/run test -- --watch=false --code-coverage
+            run test -- --watch=false --code-coverage
             '''
       }
-    }    
+      post {
+          always {
+            junit "test-results.xml"
+          }
+      }
+    } 
+    stage ('Revisión calidad con LINT'){
+      steps{
+        sh '$(npm bin)/ng lint'
+      }
+    }       
     stage ('Construcción Aplicación') {
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
