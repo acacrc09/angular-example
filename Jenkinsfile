@@ -30,7 +30,8 @@ pipeline{
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
       }
-    } 
-  }   
+    }    
   }
 }
+
+
