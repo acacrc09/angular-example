@@ -13,18 +13,18 @@ pipeline{
         '''
       }
     }
-    stage ('Test Angular Cobertura') {
+    stage ('test'){
       steps{
-        sh '''            
-            npm test
-            '''
+        sh '''
+          $(npm bin)/ng test --single-run --browsers Chrome_no_sandbox
+        '''
       }
       post {
           always {
-            junit "**/TESTS*.xml"
+            junit "test-results.xml"
           }
       }
-    } 
+    }
     stage ('Revisión calidad con LINT'){
       steps{
         sh '$(npm bin)/ng lint'
