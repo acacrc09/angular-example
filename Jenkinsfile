@@ -17,10 +17,7 @@ pipeline{
     stage ('test'){
       steps{
         sh '''
-          npm run test -- --watch=false --code-coverage
-          echo 'generate test report **/dist/test-reports/*.xml'
-          junit allowEmptyResults: false, testResults: '**/TEST*.xml'
-          echo 'end test & coverage'
+          npm run test -- --watch=false --code-coverage          
         '''
       }      
     }
@@ -34,5 +31,11 @@ pipeline{
         sh '$(npm bin)/ng build --prod --build-optimizer'
       }
     }
+    
+    post {
+    always {
+        junit '**TEST*.xml'
+    }
+}
   }
 }
