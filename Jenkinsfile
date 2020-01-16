@@ -16,7 +16,7 @@ pipeline{
     stage ('test'){
       steps{
         sh '''
-          npm run test
+          npm run test -- --watch=false --code-coverage
         '''
       }
       post {
