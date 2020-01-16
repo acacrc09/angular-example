@@ -21,11 +21,16 @@ pipeline{
         '''
       }      
     }
+    stage ('Qtest') {
+      steps{
+        submitJUnitTestResultsToqTest([apiKey: '1f1389cf-5f6f-4225-af29-6bb29248464d', containerID: 388080, containerType: 'release', createTestCaseForEachJUnitTestClass: true, createTestCaseForEachJUnitTestMethod: false, overwriteExistingTestSteps: true, parseTestResultsFromTestingTools: false, projectID: 93046, qtestURL: 'https://masisapoc.qtestnet.com/', submitToAReleaseAsSettingFromQtest: true, submitToExistingContainer: false, utilizeTestResultsFromCITool: true])
+      }
+    }
     stage ('Revisión calidad con LINT'){
       steps{
         sh '$(npm bin)/ng lint'
       }
-    }       
+    }    
     stage ('Construcción Aplicación') {
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
