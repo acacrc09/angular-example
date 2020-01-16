@@ -18,12 +18,7 @@ pipeline{
         sh '''
           npm run test -- --watch=false --code-coverage
         '''
-      }
-      post {
-          always {
-            junit "/junit/**/TESTS*.xml"
-          }
-      }
+      }      
     }
     stage ('Revisión calidad con LINT'){
       steps{
@@ -34,6 +29,6 @@ pipeline{
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
       }
-    }    
+    }
   }
 }
