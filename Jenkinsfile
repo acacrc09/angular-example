@@ -8,8 +8,9 @@ pipeline{
     }
     stage ('Instalar dependencias'){
       steps{
-        sh '''          
-          npm install          
+        sh '''
+          npm install --verbose -d 
+          npm install --save classlist.js
         '''
       }
     }
@@ -18,7 +19,7 @@ pipeline{
         sh '''
           npm run test -- --watch=false --code-coverage
           echo 'generate test report **/dist/test-reports/*.xml'
-          junit allowEmptyResults: false, testResults: '**/test-results.xml'
+          junit allowEmptyResults: false, testResults: '**/TEST*.xml'
           echo 'end test & coverage'
         '''
       }      
