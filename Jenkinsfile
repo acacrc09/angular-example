@@ -15,9 +15,8 @@ pipeline{
     }
     stage ('Test Angular Cobertura') {
       steps{
-        sh '''
-            cd src
-            npm run test --no-sandbox
+        sh '''            
+            npm test
             '''
       }
       post {
