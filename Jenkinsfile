@@ -30,12 +30,7 @@ pipeline{
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
       }
-    }
-    
-    post {
-    always {
-        junit '**TEST*.xml'
-    }
-}
+    } 
+  }   
   }
 }
