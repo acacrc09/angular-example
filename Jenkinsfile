@@ -22,7 +22,7 @@ pipeline{
       }
       post {
           always {
-            junit "junit/TESTS*.xml"
+            junit "junit/*.xml"
           }
       }
     }
