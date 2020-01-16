@@ -17,6 +17,9 @@ pipeline{
       steps{
         sh '''
           npm run test -- --watch=false --code-coverage
+          echo 'generate test report **/dist/test-reports/*.xml'
+          junit allowEmptyResults: false, testResults: '**/test-results.xml'
+          echo 'end test & coverage'
         '''
       }      
     }
