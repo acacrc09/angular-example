@@ -71,15 +71,7 @@ steps:
     testRunTitle: Angular
     testResultsFormat: JUnit
     testResultsFiles: "**/TESTS*.xml"
-
-- task: JenkinsOnOpenshiftQueueJob@1
-  inputs:
-    serverEndpoint: 'Jenkins Openshift'
-    jobName: 'new_pipeline_qtest_demo'
-    captureConsole: true
-    capturePipeline: true
-    isParameterizedJob: true
-
+    
 - task: Npm@1
   displayName: 'E2E Test Angular'
   inputs:
