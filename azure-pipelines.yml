@@ -82,7 +82,7 @@ steps:
 - task: JenkinsQueueJob@2
   inputs:
     serverEndpoint: 'Jenkins Poc Masisa'
-    jobName: 'new_pipeline_qtest_demo'
+    jobName: 'job/new_pipeline_qtest_demo'
     isMultibranchJob: true
     multibranchPipelineBranch: 'master'
     captureConsole: false
