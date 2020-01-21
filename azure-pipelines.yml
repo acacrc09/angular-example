@@ -79,14 +79,6 @@ steps:
     customCommand: run e2e
     workingDir: src
 
-- task: JenkinsQueueJob@2
-  inputs:
-    serverEndpoint: 'Jenkins Poc Masisa'
-    jobName: 'new_pipeline_qtest_demo'
-    captureConsole: true
-    capturePipeline: true
-    isParameterizedJob: false
-
 - task: PublishTestResults@2
   displayName: 'Publish Angular E2E test results'
   condition: succeededOrFailed()
