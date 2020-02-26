@@ -15,20 +15,20 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: SonarQubePrepare@4
-  inputs:
-    SonarQube: 'Sonar Qube Openshift'
-    scannerMode: 'CLI'
-    configMode: 'file'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner, 
-      # Put one key=value per line, example:
-      sonar.login=admin
-      sonar.password=admin
-      sonar.projectKey=angular:angular-example
-      # sonar.exclusions=**/*.bin
+#- task: SonarQubePrepare@4
+#  inputs:
+#    SonarQube: 'Sonar Qube Openshift'
+#    scannerMode: 'CLI'
+#    configMode: 'file'
+#    extraProperties: |
+#      # Additional properties that will be passed to the scanner, 
+#      # Put one key=value per line, example:
+#      sonar.login=admin
+#      sonar.password=admin
+#      sonar.projectKey=angular:angular-example
+#      # sonar.exclusions=**/*.bin
 
-- task: SonarQubeAnalyze@4
+#- task: SonarQubeAnalyze@4
 
 - task: DeleteFiles@1
   displayName: 'Eliminar JUnit files'
