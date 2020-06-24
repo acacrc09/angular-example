@@ -19,18 +19,8 @@ pipeline{
         sh '''
           npm run test -- --watch=false --code-coverage          
         '''
-      }
-      post {
-          always {
-            junit "junit/*.xml"
-          }
-      }
-    }
-    stage ('Qtest') {
-      steps{
-        submitJUnitTestResultsToqTest([apiKey: '1f1389cf-5f6f-4225-af29-6bb29248464d', containerID: 1723433, containerType: 'test-cycle', createNewTestRunsEveryBuildDate: true, createTestCaseForEachJUnitTestClass: true, createTestCaseForEachJUnitTestMethod: false, overwriteExistingTestSteps: false, parseTestResultsFromTestingTools: true, parseTestResultsPattern: 'junit/**.xml', projectID: 93046, qtestURL: 'https://masisapoc.qtestnet.com/', submitToAReleaseAsSettingFromQtest: false, submitToExistingContainer: true, utilizeTestResultsFromCITool: false])
-      }
-    }
+      }      
+    }    
     stage ('Revisión calidad con LINT'){
       steps{
         sh '$(npm bin)/ng lint'
