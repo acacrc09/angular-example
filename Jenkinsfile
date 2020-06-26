@@ -16,13 +16,6 @@ pipeline{
           npm install --verbose -d          
         '''
       }
-    }
-    stage ('test'){
-      steps{
-        sh '''
-          npm run test -- --watch=false --code-coverage          
-        '''
-      }      
     }    
     stage ('Revisión calidad con LINT'){
       steps{
