@@ -26,7 +26,18 @@ pipeline{
       steps{
         sh '$(npm bin)/ng build --prod --build-optimizer'
       }
-    }    
+    }
+    stage ('Desplegar') { 
+      steps{
+        script {
+          openshift.withCluster() {
+            openshift.withProject('poc-uss') {
+              openshift.selector("bc", "angularexamples").startBuild("--from-dir=./dist", "--wait=true", "--follow", "--loglevel=8")
+            }
+          }
+        }
+      }
+    }
   }
 }
 
