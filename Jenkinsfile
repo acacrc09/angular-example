@@ -24,7 +24,7 @@ pipeline{
     }
     stage ('Inspección de Codigo con Sonarqube'){
       steps{
-        sh '$(npm bin)/ng sonar'
+        sh '$(npm bin)/npm run sonar'
       }
     }    
     stage ('Construcción Aplicación') {
