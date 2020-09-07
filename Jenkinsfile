@@ -22,7 +22,7 @@ pipeline{
         sh '$(npm bin)/ng lint'
       }
     }
-    stage ('Inspección de Codigo con Sonarqube'){
+    stage ('Inspección con Sonarqube'){
       steps{
         sh '''
           npm run sonar          
