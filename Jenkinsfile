@@ -21,6 +21,11 @@ pipeline{
       steps{
         sh '$(npm bin)/ng lint'
       }
+    }
+    stage ('Inspección de Codigo con Sonarqube'){
+      steps{
+        sh '$(npm bin)/ng sonar'
+      }
     }    
     stage ('Construcción Aplicación') {
       steps{
