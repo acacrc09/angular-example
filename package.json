@@ -9,7 +9,7 @@
         "test": "npm run install-puppeteer && ng test",
         "lint": "ng lint",
         "e2e": "npm run install-puppeteer && ng e2e",
-        "sonar": "sonar-scanner -Dsonar.projectKey=poc-angular -Dsonar.sources=. -Dsonar.host.url=http://sonarqube-poc-angular.apps.okd.soft1.xyz -Dsonar.login=d5ec678c0439f82a0b508f6e823bf74cee8095a8"
+        "sonar": "sonar-scanner -Dsonar.projectKey=poc-angular -Dsonar.sources=. -Dsonar.host.url=http://sonarqube-poc-angular.apps.okd.soft1.xyz -Dsonar.login=d5ec678c0439f82a0b508f6e823bf74cee8095a8 -Dsonar.scm.forceReloadAll=true"
     },
     "private": true,
     "dependencies": {
