@@ -1,0 +1,11 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "angular-pipeline"
+spec:
+  source:
+    git:
+      uri: "https://github.com/acacrc09/angular-example"
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: Jenkinsfileteom
