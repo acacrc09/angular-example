@@ -7,7 +7,7 @@ COPY nginx/ /etc/nginx/conf.d/
 RUN rm -rf /usr/share/nginx/html/*
 
 ## copy over the artifacts in dist folder to default nginx public folder
-COPY dist/ /usr/share/nginx/html
+## COPY dist/ /usr/share/nginx/html
 
 EXPOSE 8080
 
@@ -49,3 +49,4 @@ CMD ["nginx", "-g", "daemon off;"]
 #EXPOSE 8080
 
 #CMD ["nginx", "-g", "daemon off;"]
+
