@@ -7,7 +7,7 @@ COPY nginx/ /etc/nginx/conf.d/
 RUN rm -rf /usr/share/nginx/html/*
 
 ## copy over the artifacts in dist folder to default nginx public folder
-COPY dist/ /usr/share/nginx/html
+COPY COPY --from=build /usr/local/app/dist/* /usr/share/nginx/html
 
 EXPOSE 8080
 
