@@ -1,17 +1,31 @@
-FROM nginx:1.13.3-alpine
+# Stage 1: Compile and Build angular codebase
 
-## Copy our nginx config
-COPY nginx/ /etc/nginx/conf.d/
+# Use official node image as the base image
+FROM node:latest as build
 
-## Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+# Set the working directory
+WORKDIR /usr/local/app
 
-## copy over the artifacts in dist folder to default nginx public folder
-COPY COPY --from=build /usr/local/app/dist/ /usr/share/nginx/html
+# Add the source code to app
+COPY ./ /usr/local/app/
 
-EXPOSE 8080
+# Install all the dependencies
+RUN npm install
 
-CMD ["nginx", "-g", "daemon off;"]
+# Generate the build of the application
+RUN npm run build
+
+
+# Stage 2: Serve app with nginx server
+
+# Use official nginx image as the base image
+FROM nginx:latest
+
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /usr/local/app/dist/sample-angular-app /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
 #FROM nginx:1.13.3-alpine
 
 ## Copy our nginx config
