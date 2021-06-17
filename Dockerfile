@@ -26,7 +26,7 @@ FROM nginx:latest
 COPY --from=build /usr/local/app/dist/ /usr/share/nginx/html
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 8080
 #FROM nginx:1.13.3-alpine
 
 ## Copy our nginx config
