@@ -42,12 +42,12 @@ steps:
     npm install          
   displayName: 'Instalar npm'
 
-- task: Npm@1
-  displayName: 'Lint Angular (typeScript)'
-  inputs:
-    command: 'custom'
-    workingDir: '$(System.DefaultWorkingDirectory)/src'
-    customCommand: 'run lint --  --format=stylish'
+#- task: Npm@1
+#  displayName: 'Lint Angular (typeScript)'
+#  inputs:
+#    command: 'custom'
+#    workingDir: '$(System.DefaultWorkingDirectory)/src'
+#    customCommand: 'run lint --  --format=stylish'
 
 - task: Npm@1
   displayName: 'Test Angular Cobertura'
